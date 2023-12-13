@@ -2,6 +2,7 @@ import customtkinter as ctk
 import hashlib
 from register_form.Registerform import register_window
 from CTkMessagebox import CTkMessagebox
+from hover.hover import CreateToolTip
 
 
 regex = '^[a-z0-9]+[._]?[a-z0-9]+[@]w+[.]w{2,3}$'
@@ -145,20 +146,25 @@ info_btn = ctk.CTkButton(frame_login_window,
                          hover_color='#707070', command=info)
 info_btn.grid(row=4, column=0, columnspan=1,  pady=1, ipadx=5)
 
-Exit_btn = ctk.CTkButton(frame_login_window,
+exit_btn = ctk.CTkButton(frame_login_window,
                          text='Close', font=('Britannic Bold', 16), fg_color='#fa0505', width=10,
                          hover_color='#707070', command=login_window.destroy)
-Exit_btn.grid(row=5, column=1, columnspan=3)
+exit_btn.grid(row=5, column=1, columnspan=3)
 
-Login_btn = ctk.CTkButton(frame_login_window,
+login_btn = ctk.CTkButton(frame_login_window,
                           text='Login', font=('Britannic Bold', 16), fg_color='#494949', width=10,
                           hover_color='#707070', command=login_check)
-Login_btn.grid(row=4, column=1, columnspan=1, pady=15)
+login_btn.grid(row=4, column=1, columnspan=1, pady=15)
 
 toggle_btn = ctk.CTkButton(frame_login_window,
                            text='Show password', font=('Britannic Bold', 15), width=8, fg_color='#494949',
                            hover_color='#707070', command=toggle_password)
 toggle_btn.grid(row=7, column=0, columnspan=2, pady=15)
 
+CreateToolTip(register_btn, 'Register')
+CreateToolTip(info_btn, 'Info')
+CreateToolTip(exit_btn, 'Exit')
+CreateToolTip(exit_btn, 'Login')
+CreateToolTip(toggle_btn, 'Change')
 
 login_window.mainloop()
